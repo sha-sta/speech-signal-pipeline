@@ -1,0 +1,31 @@
+{
+ "series": {
+  "additional_prohibitions": [
+   "Persons who are employed by any of the Source Agencies are not permitted to trade on the Contract.",
+   "Persons who hold any material, non-public information on the Underlying are not permitted to trade on the Contract."
+  ],
+  "category": "Exotics",
+  "contract_terms_url": "https://kalshi-public-docs.s3.amazonaws.com/contract_terms/FOOTBALLSTATS.pdf",
+  "contract_url": "https://kalshi-public-docs.s3.us-east-1.amazonaws.com/regulatory/product-certifications/FOOTBALLSTATS.pdf",
+  "fee_multiplier": 1,
+  "fee_type": "quadratic",
+  "frequency": "one_off",
+  "last_updated_ts": "2026-03-09T14:05:04.549436Z",
+  "product_metadata": {
+   "important_info": null
+  },
+  "settlement_sources": [
+   {
+    "name": "the league governing the game",
+    "url": "https://www.ncaa.com/sports/football/fbs"
+   },
+   {
+    "name": "the league governing the game",
+    "url": "https://www.nfl.com/"
+   }
+  ],
+  "tags": null,
+  "ticker": "KXMVESPORTSMULTIGAMEEXTENDED",
+  "title": "MVE Sport Mutli Game"
+ }
+}

@@ -1,0 +1,23 @@
+# systemd unit for the speech capture daemon (VPS host).
+# Install: sed "s#__REPO__#/home/you/speech-signal-pipeline#g; s#__USER__#you#g" \
+#            deploy/pmlab-probe.service | sudo tee /etc/systemd/system/pmlab-probe.service
+#          sudo systemctl daemon-reload && sudo systemctl enable --now pmlab-probe
+[Unit]
+Description=pmlab probe daemon (record-only speech/broadcast capture)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=__USER__
+WorkingDirectory=__REPO__
+ExecStart=__REPO__/.venv/bin/pmlab probe daemon
+Restart=on-failure
+RestartSec=10
+# Whisper decode is the CPU-bound core of a capture; keep the OOM killer away
+OOMScoreAdjust=-500
+StandardOutput=append:__REPO__/data/probe/daemon.out.log
+StandardError=append:__REPO__/data/probe/daemon.err.log
+
+[Install]
+WantedBy=multi-user.target

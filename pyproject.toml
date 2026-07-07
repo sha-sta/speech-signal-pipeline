@@ -1,0 +1,76 @@
+[project]
+name = "speech-signal-pipeline"
+version = "0.1.0"
+description = "Reusable speech-research pipeline: real-time audio capture -> streaming Whisper ASR -> transcript handling -> spike detection -> read-only market-data ingestion -> backtest harness"
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "httpx>=0.27",
+    "pydantic>=2.7",
+    "pydantic-settings>=2.3",
+    "pandas>=2.2",
+    "pyarrow>=16",
+    "numpy>=1.26",
+    "scipy>=1.13",
+    "typer>=0.12",
+    "rich>=13.7",
+    "tenacity>=8.4",
+    "pandera>=0.20",
+    "selectolax>=0.4.10",
+    "yt-dlp>=2026.6.9",
+    "cryptography>=49.0.0",
+    "websockets>=13",
+]
+
+[project.optional-dependencies]
+# Local streaming ASR for the live capture probe (§3, $0-API). Heavy (ctranslate2); install on the
+# host only: `uv sync --extra probe`. Imported lazily so the base package + tests never need it.
+probe = ["faster-whisper>=1.0"]
+
+[project.scripts]
+pmlab = "pmlab.cli:main"
+
+[dependency-groups]
+dev = [
+    "pytest>=8.2",
+    "pytest-asyncio>=0.23",
+    "ruff>=0.5",
+    "mypy>=1.10",
+    "types-requests>=2.32",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/pmlab"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "W", "C4"]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+mypy_path = "src"
+packages = ["pmlab"]
+plugins = ["pydantic.mypy"]
+# Third-party libs without complete stubs; we only rely on our own typing at boundaries.
+[[tool.mypy.overrides]]
+module = [
+    "pandas.*", "scipy.*",
+    "faster_whisper.*", "websockets.*", "selectolax.*",
+]
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = [
+    "live: hits real venue endpoints over the network (deselected by default; run with -m live)",
+]
+addopts = "-m 'not live'"

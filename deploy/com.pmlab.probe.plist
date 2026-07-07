@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  launchd service for the speech capture daemon.
+  Host option (a): a Mac, plugged in, always-on. $0. Read-only market data + local
+  ASR; ZERO order endpoints — this pipeline is record-only.
+
+  Install (replace __REPO__ with the absolute repo path):
+    sed 's#__REPO__#'"$PWD"'#g' deploy/com.pmlab.probe.plist > ~/Library/LaunchAgents/com.pmlab.probe.plist
+    launchctl load ~/Library/LaunchAgents/com.pmlab.probe.plist     # start (also runs at login)
+    launchctl unload ~/Library/LaunchAgents/com.pmlab.probe.plist   # stop
+  Requires: `uv sync --extra probe` (faster-whisper) + ffmpeg on PATH + PMLAB_* in .env.
+-->
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.pmlab.probe</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>__REPO__/.venv/bin/pmlab</string>
+        <string>probe</string>
+        <string>daemon</string>
+    </array>
+
+    <key>WorkingDirectory</key>
+    <string>__REPO__</string>
+
+    <!-- keep the persistent audio+WS process alive across crashes/logouts (NOT serverless) -->
+    <key>RunAtLoad</key>
+    <true/>
+    <key>KeepAlive</key>
+    <true/>
+
+    <!-- don't let macOS App Nap throttle a long-running capture -->
+    <key>ProcessType</key>
+    <string>Background</string>
+
+    <key>StandardOutPath</key>
+    <string>__REPO__/data/probe/daemon.out.log</string>
+    <key>StandardErrorPath</key>
+    <string>__REPO__/data/probe/daemon.err.log</string>
+</dict>
+</plist>

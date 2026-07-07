@@ -1,0 +1,165 @@
+{
+ "cursor": "",
+ "markets": [
+  {
+   "can_close_early": true,
+   "close_time": "2026-07-17T03:00:00Z",
+   "created_time": "2026-07-03T02:45:10.609939Z",
+   "custom_strike": {
+    "Associated Events": "KXMLBGAME-26JUL022005DETTEX,KXWCTOTAL-26JUL02SUIDZA,KXWNBAGAME-26JUL02DALCONN,KXWNBAGAME-26JUL02SEAPHX",
+    "Associated Market Sides": "yes,yes,yes,yes",
+    "Associated Markets": "KXMLBGAME-26JUL022005DETTEX-TEX,KXWCTOTAL-26JUL02SUIDZA-3,KXWNBAGAME-26JUL02DALCONN-DAL,KXWNBAGAME-26JUL02SEAPHX-PHX",
+    "Multivariate Event Ticker": "KXMVECROSSCATEGORY-S2026E19011EAAD3"
+   },
+   "event_ticker": "KXMVECROSSCATEGORY-S2026E19011EAAD3",
+   "expected_expiration_time": "2026-07-03T07:00:00Z",
+   "expiration_time": "2026-07-17T03:00:00Z",
+   "expiration_value": "",
+   "fractional_trading_enabled": true,
+   "is_provisional": true,
+   "last_price_dollars": "0.0000",
+   "latest_expiration_time": "2026-07-17T03:00:00Z",
+   "liquidity_dollars": "0.0000",
+   "market_type": "binary",
+   "mve_collection_ticker": "KXMVECROSSCATEGORY-R",
+   "mve_selected_legs": [
+    {
+     "event_ticker": "KXMLBGAME-26JUL022005DETTEX",
+     "market_ticker": "KXMLBGAME-26JUL022005DETTEX-TEX",
+     "side": "yes"
+    },
+    {
+     "event_ticker": "KXWCTOTAL-26JUL02SUIDZA",
+     "market_ticker": "KXWCTOTAL-26JUL02SUIDZA-3",
+     "side": "yes"
+    },
+    {
+     "event_ticker": "KXWNBAGAME-26JUL02DALCONN",
+     "market_ticker": "KXWNBAGAME-26JUL02DALCONN-DAL",
+     "side": "yes"
+    },
+    {
+     "event_ticker": "KXWNBAGAME-26JUL02SEAPHX",
+     "market_ticker": "KXWNBAGAME-26JUL02SEAPHX-PHX",
+     "side": "yes"
+    }
+   ],
+   "no_ask_dollars": "1.0000",
+   "no_bid_dollars": "1.0000",
+   "no_sub_title": "yes Texas,yes Reg Time: Over 2.5 goals scored,yes Dallas,yes Phoenix",
+   "notional_value_dollars": "1.0000",
+   "open_interest_fp": "0.00",
+   "open_time": "2026-07-03T02:45:10Z",
+   "previous_price_dollars": "0.0000",
+   "previous_yes_ask_dollars": "0.0000",
+   "previous_yes_bid_dollars": "0.0000",
+   "price_level_structure": "deci_cent",
+   "price_ranges": [
+    {
+     "end": "1.0000",
+     "start": "0.0000",
+     "step": "0.0010"
+    }
+   ],
+   "response_price_units": "usd_cent",
+   "result": "",
+   "rules_primary": "",
+   "rules_secondary": "",
+   "settlement_timer_seconds": 5,
+   "status": "active",
+   "strike_type": "custom",
+   "ticker": "KXMVECROSSCATEGORY-S2026E19011EAAD3-738D582F6C2",
+   "title": "yes Texas,yes Reg Time: Over 2.5 goals scored,yes Dallas,yes Phoenix",
+   "updated_time": "2026-07-03T02:45:10.69094Z",
+   "volume_24h_fp": "0.00",
+   "volume_fp": "0.00",
+   "yes_ask_dollars": "0.0000",
+   "yes_ask_size_fp": "0.00",
+   "yes_bid_dollars": "0.0000",
+   "yes_bid_size_fp": "0.00",
+   "yes_sub_title": "yes Texas,yes Reg Time: Over 2.5 goals scored,yes Dallas,yes Phoenix"
+  },
+  {
+   "can_close_early": true,
+   "close_time": "2026-07-31T22:00:00Z",
+   "created_time": "2026-07-03T02:42:56.472469Z",
+   "custom_strike": {
+    "Associated Events": "KXWCADVANCE-26JUL02SUIDZA,KXWCADVANCE-26JUL03ARGCPV,KXWCBTTS-26JUL02SUIDZA,KXWCBTTS-26JUL03ARGCPV,KXWCBTTS-26JUL03COLGHA",
+    "Associated Market Sides": "yes,yes,yes,yes,yes",
+    "Associated Markets": "KXWCADVANCE-26JUL02SUIDZA-DZA,KXWCADVANCE-26JUL03ARGCPV-CPV,KXWCBTTS-26JUL02SUIDZA-BTTS,KXWCBTTS-26JUL03ARGCPV-BTTS,KXWCBTTS-26JUL03COLGHA-BTTS",
+    "Multivariate Event Ticker": "KXMVESPORTSMULTIGAMEEXTENDED-S20265993FC1347F"
+   },
+   "event_ticker": "KXMVESPORTSMULTIGAMEEXTENDED-S20265993FC1347F",
+   "expected_expiration_time": "2026-07-04T05:30:00Z",
+   "expiration_time": "2026-07-31T22:00:00Z",
+   "expiration_value": "",
+   "fractional_trading_enabled": true,
+   "last_price_dollars": "0.0050",
+   "latest_expiration_time": "2026-07-31T22:00:00Z",
+   "liquidity_dollars": "0.0000",
+   "market_type": "binary",
+   "mve_collection_ticker": "KXMVESPORTSMULTIGAMEEXTENDED-R",
+   "mve_selected_legs": [
+    {
+     "event_ticker": "KXWCADVANCE-26JUL02SUIDZA",
+     "market_ticker": "KXWCADVANCE-26JUL02SUIDZA-DZA",
+     "side": "yes"
+    },
+    {
+     "event_ticker": "KXWCADVANCE-26JUL03ARGCPV",
+     "market_ticker": "KXWCADVANCE-26JUL03ARGCPV-CPV",
+     "side": "yes"
+    },
+    {
+     "event_ticker": "KXWCBTTS-26JUL02SUIDZA",
+     "market_ticker": "KXWCBTTS-26JUL02SUIDZA-BTTS",
+     "side": "yes"
+    },
+    {
+     "event_ticker": "KXWCBTTS-26JUL03ARGCPV",
+     "market_ticker": "KXWCBTTS-26JUL03ARGCPV-BTTS",
+     "side": "yes"
+    },
+    {
+     "event_ticker": "KXWCBTTS-26JUL03COLGHA",
+     "market_ticker": "KXWCBTTS-26JUL03COLGHA-BTTS",
+     "side": "yes"
+    }
+   ],
+   "no_ask_dollars": "1.0000",
+   "no_bid_dollars": "0.9940",
+   "no_sub_title": "yes Algeria advances,yes Cape Verde advances,yes Reg Time: Both Teams To Score,yes Reg Time: Both Teams To Score,yes Reg Time: Both Teams To Score",
+   "notional_value_dollars": "1.0000",
+   "open_interest_fp": "18703.69",
+   "open_time": "2026-07-03T02:42:56Z",
+   "previous_price_dollars": "0.0000",
+   "previous_yes_ask_dollars": "0.0000",
+   "previous_yes_bid_dollars": "0.0000",
+   "price_level_structure": "deci_cent",
+   "price_ranges": [
+    {
+     "end": "1.0000",
+     "start": "0.0000",
+     "step": "0.0010"
+    }
+   ],
+   "response_price_units": "usd_cent",
+   "result": "",
+   "rules_primary": "",
+   "rules_secondary": "",
+   "settlement_timer_seconds": 5,
+   "status": "active",
+   "strike_type": "custom",
+   "ticker": "KXMVESPORTSMULTIGAMEEXTENDED-S20265993FC1347F-F52DFE18E7D",
+   "title": "yes Algeria advances,yes Cape Verde advances,yes Reg Time: Both Teams To Score,yes Reg Time: Both Teams To Score,yes Reg Time: Both Teams To Score",
+   "updated_time": "2026-07-03T02:42:56.702421Z",
+   "volume_24h_fp": "0.00",
+   "volume_fp": "18703.69",
+   "yes_ask_dollars": "0.0060",
+   "yes_ask_size_fp": "216.00",
+   "yes_bid_dollars": "0.0000",
+   "yes_bid_size_fp": "0.00",
+   "yes_sub_title": "yes Algeria advances,yes Cape Verde advances,yes Reg Time: Both Teams To Score,yes Reg Time: Both Teams To Score,yes Reg Time: Both Teams To Score"
+  }
+ ]
+}

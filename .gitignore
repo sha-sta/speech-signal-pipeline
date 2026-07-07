@@ -1,0 +1,31 @@
+# Data & secrets (never commit).
+# data/ is gitignored EXCEPT the committed M1 human-gate artifact review.csv. The full
+# registry/catalog/raw are large + regenerable (`pmlab mentions discover|parse|registry`), so they
+# stay out; review.csv (flagged subset + owner corrections) is the durable, auditable record.
+/data/*
+!/data/universe/
+/data/universe/*
+!/data/universe/review.csv
+.env
+.env.*
+!.env.example
+secrets/
+*.pem
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+*.parquet
+
+# Tooling caches
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/
+
+# Local figures scratch (committed figures live under docs/figs/)
+/figs/
+
+# MCP / tooling artifacts
+.playwright-mcp/

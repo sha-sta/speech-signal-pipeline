@@ -1,0 +1,470 @@
+{
+ "records": [
+  {
+   "kind": "duration",
+   "market": {
+    "can_close_early": true,
+    "close_time": "2026-07-06T14:00:00Z",
+    "created_time": "2026-06-29T10:49:57.011057Z",
+    "custom_strike": {
+     "Word": "Autism"
+    },
+    "early_close_condition": "This market will close and expire early if the specified word or phrase is stated by President Trump.",
+    "event_ticker": "KXTRUMPSAY-26JUL06",
+    "expected_expiration_time": "2026-07-06T14:00:00Z",
+    "expiration_time": "2026-07-06T14:00:00Z",
+    "expiration_value": "",
+    "fractional_trading_enabled": true,
+    "last_price_dollars": "0.2200",
+    "latest_expiration_time": "2026-07-06T14:00:00Z",
+    "liquidity_dollars": "0.0000",
+    "market_type": "binary",
+    "no_ask_dollars": "0.7900",
+    "no_bid_dollars": "0.7800",
+    "no_sub_title": "Autism",
+    "notional_value_dollars": "1.0000",
+    "occurrence_datetime": "2026-07-06T14:00:00Z",
+    "open_interest_fp": "1604.66",
+    "open_time": "2026-06-29T12:00:00Z",
+    "previous_price_dollars": "0.1000",
+    "previous_yes_ask_dollars": "0.0800",
+    "previous_yes_bid_dollars": "0.0700",
+    "price_level_structure": "linear_cent",
+    "price_ranges": [
+     {
+      "end": "1.0000",
+      "start": "0.0000",
+      "step": "0.0100"
+     }
+    ],
+    "response_price_units": "usd_cent",
+    "result": "",
+    "rules_primary": "If Autism, or a plural or possessive form of Autism, is stated by Donald Trump after June 29th, 2026 at 8:00am ET and before Jul 6, 2026 at 12:00am ET, then the market resolves to Yes.",
+    "rules_secondary": "bold textThe word or phrase must be stated by President Donald Trump in public statements, direct quotes published by Source Agencies, or written public statements on his personal social media accounts (Twitter/Truth Social). Official acts like Executive Orders or bills signed do not count. Grammatical inflections for plurals and possessives are included (e.g., \"immigrant\" includes \"immigrants\" and \"immigrant's\"), but other tense inflections, hyphenated compounds, and synonyms are not included. For phrases with slashes like \"Doge/Dogecoin,\" either word satisfies the criterion. If the word must be said a minimum number of times, all instances must occur after market issuance.",
+    "settlement_timer_seconds": 1800,
+    "status": "active",
+    "strike_type": "custom",
+    "subtitle": "Autism",
+    "ticker": "KXTRUMPSAY-26JUL06-AUTI",
+    "title": "Will Trump say \"Autism\" before Jul 6, 2026?",
+    "updated_time": "2026-06-29T12:00:01.046449Z",
+    "volume_24h_fp": "437.55",
+    "volume_fp": "2478.16",
+    "yes_ask_dollars": "0.2200",
+    "yes_ask_size_fp": "60.00",
+    "yes_bid_dollars": "0.2100",
+    "yes_bid_size_fp": "216.00",
+    "yes_sub_title": "Autism"
+   },
+   "event": {
+    "event_ticker": "KXTRUMPSAY-26JUL06",
+    "series_ticker": "KXTRUMPSAY",
+    "series_title": "What will trump say",
+    "title": "What will Trump say this week?",
+    "settlement_sources": [
+     {
+      "name": "ABC",
+      "url": "https://abcnews.go.com/"
+     },
+     {
+      "name": "Fox News",
+      "url": "https://www.foxnews.com/"
+     },
+     {
+      "name": "MSNBC",
+      "url": "https://www.msnbc.com/"
+     },
+     {
+      "name": "The Wall Street Journal",
+      "url": "https://www.wsj.com/"
+     },
+     {
+      "name": "Semafor",
+      "url": "https://www.semafor.com/"
+     },
+     {
+      "name": "The Information",
+      "url": "https://www.theinformation.com/"
+     },
+     {
+      "name": "the President of the United States",
+      "url": "https://www.whitehouse.gov/"
+     },
+     {
+      "name": "CBS",
+      "url": "https://www.cbsnews.com/"
+     },
+     {
+      "name": "Axios",
+      "url": "https://www.axios.com/"
+     },
+     {
+      "name": "CNN",
+      "url": "https://www.cnn.com/"
+     },
+     {
+      "name": "Reuters",
+      "url": "https://www.reuters.com/"
+     },
+     {
+      "name": "The Washington Post",
+      "url": "https://www.washingtonpost.com/"
+     },
+     {
+      "name": "the Associated Press",
+      "url": "https://apnews.com/"
+     },
+     {
+      "name": "Politico",
+      "url": "https://www.politico.com/"
+     },
+     {
+      "name": "The New York Times",
+      "url": "https://www.nytimes.com/"
+     }
+    ]
+   }
+  },
+  {
+   "kind": "length",
+   "market": {
+    "can_close_early": true,
+    "close_time": "2026-06-26T20:08:57Z",
+    "created_time": "2026-06-26T13:31:33.74688Z",
+    "early_close_condition": "This market will close and expire early if the event occurs.",
+    "event_ticker": "KXTRUMPMENTIONDURATION-JUN2726",
+    "expected_expiration_time": "2026-06-27T14:00:00Z",
+    "expiration_time": "2026-07-04T14:00:00Z",
+    "expiration_value": "45 or above ",
+    "floor_strike": 29,
+    "fractional_trading_enabled": true,
+    "last_price_dollars": "0.9900",
+    "latest_expiration_time": "2026-07-04T14:00:00Z",
+    "liquidity_dollars": "0.0000",
+    "market_type": "binary",
+    "no_ask_dollars": "1.0000",
+    "no_bid_dollars": "0.0000",
+    "no_sub_title": "30 or above",
+    "notional_value_dollars": "1.0000",
+    "occurrence_datetime": "2026-06-27T14:00:00Z",
+    "open_interest_fp": "7027.73",
+    "open_time": "2026-06-26T13:45:00Z",
+    "previous_price_dollars": "0.9900",
+    "previous_yes_ask_dollars": "1.0000",
+    "previous_yes_bid_dollars": "0.0000",
+    "price_level_structure": "linear_cent",
+    "price_ranges": [
+     {
+      "end": "1.0000",
+      "start": "0.0000",
+      "step": "0.0100"
+     }
+    ],
+    "response_price_units": "usd_cent",
+    "result": "yes",
+    "rules_primary": "If Donald Trump speaks for 30 or above minutes at Remarks at the Faith & Freedom Coalition's 2026 Policy Conference before Jun 27, 2026, then the market resolves to Yes.",
+    "rules_secondary": "Speaking will be measured from first word audibly said by Trump to the last word audibly said by Trump. Pauses in speech will be included in the speech time if they are between those two points. First word will be recognized when Donald Trump speaks in an official capacity into the microphone. Words picked up on a hot mic during Donald Trump's entrance & exit will not count.",
+    "settlement_timer_seconds": 1800,
+    "settlement_ts": "2026-06-26T20:39:14.398476Z",
+    "settlement_value_dollars": "1.0000",
+    "status": "finalized",
+    "strike_type": "greater",
+    "ticker": "KXTRUMPMENTIONDURATION-JUN2726-29",
+    "title": "How long will Donald Trump speak for at Remarks at the Faith & Freedom Coalition's 2026 Policy Conference?",
+    "updated_time": "2026-06-26T20:39:14.450462Z",
+    "volume_24h_fp": "0.00",
+    "volume_fp": "7327.73",
+    "yes_ask_dollars": "1.0000",
+    "yes_ask_size_fp": "0.00",
+    "yes_bid_dollars": "0.0000",
+    "yes_bid_size_fp": "0.00",
+    "yes_sub_title": "30 or above"
+   },
+   "event": {
+    "event_ticker": "KXTRUMPMENTIONDURATION-JUN2726",
+    "series_ticker": "KXTRUMPMENTIONDURATION",
+    "series_title": "How Long Will Trump Speak",
+    "title": "How long will Trump speak for at the Faith & Freedom Coalition's Conference?",
+    "settlement_sources": [
+     {
+      "name": "person",
+      "url": "https://kalshi.com/"
+     },
+     {
+      "name": "BBC",
+      "url": "https://www.bbc.co.uk"
+     },
+     {
+      "name": "The Information",
+      "url": "https://www.theinformation.com/"
+     },
+     {
+      "name": "The Wall Street Journal",
+      "url": "https://www.wsj.com/"
+     },
+     {
+      "name": "official broadcasters of event",
+      "url": "https://kalshi.com/"
+     },
+     {
+      "name": "The Washington Post",
+      "url": "https://www.washingtonpost.com/"
+     },
+     {
+      "name": "NBC",
+      "url": "https://www.nbcnews.com/"
+     },
+     {
+      "name": "Axios",
+      "url": "https://www.axios.com"
+     },
+     {
+      "name": "venue hosting event",
+      "url": "https://kalshi.com/"
+     },
+     {
+      "name": "organizers of event",
+      "url": "https://kalshi.com/"
+     },
+     {
+      "name": "Fox News",
+      "url": "https://www.foxnews.com"
+     },
+     {
+      "name": "Reuters",
+      "url": "https://www.reuters.com/"
+     },
+     {
+      "name": "The New York Times",
+      "url": "https://www.nytimes.com"
+     },
+     {
+      "name": "Politico",
+      "url": "https://www.politico.com"
+     },
+     {
+      "name": "Semafor",
+      "url": "https://semafor.com"
+     },
+     {
+      "name": "MSNBC",
+      "url": "https://www.msnbc.com"
+     },
+     {
+      "name": "CNN",
+      "url": "https://www.cnn.com"
+     },
+     {
+      "name": "the Associated Press",
+      "url": "https://apnews.com/"
+     },
+     {
+      "name": "ABC",
+      "url": "https://abcnews.go.com/"
+     },
+     {
+      "name": "video of event",
+      "url": "https://kalshi.com/"
+     },
+     {
+      "name": "CBS",
+      "url": "https://www.cbsnews.com/"
+     },
+     {
+      "name": "Bloomberg News",
+      "url": "https://www.bloomberg.com/news"
+     }
+    ]
+   }
+  },
+  {
+   "kind": "superlative",
+   "market": {
+    "can_close_early": true,
+    "close_time": "2026-06-06T02:02:55Z",
+    "created_time": "2026-06-02T00:33:42.882793Z",
+    "custom_strike": {
+     "topic": "Immigration"
+    },
+    "early_close_condition": "This market will close and expire early if the event occurs.",
+    "event_ticker": "KXTRUMPTOPIC-26JUN05",
+    "expected_expiration_time": "2026-06-06T14:00:00Z",
+    "expiration_time": "2026-06-20T14:00:00Z",
+    "expiration_value": "No",
+    "fractional_trading_enabled": true,
+    "last_price_dollars": "0.0100",
+    "latest_expiration_time": "2026-06-20T14:00:00Z",
+    "liquidity_dollars": "0.0000",
+    "market_type": "binary",
+    "no_ask_dollars": "1.0000",
+    "no_bid_dollars": "0.0000",
+    "no_sub_title": "Immigration",
+    "notional_value_dollars": "1.0000",
+    "occurrence_datetime": "2026-06-06T23:00:00Z",
+    "open_interest_fp": "8860.71",
+    "open_time": "2026-06-02T02:00:00Z",
+    "previous_price_dollars": "0.0100",
+    "previous_yes_ask_dollars": "1.0000",
+    "previous_yes_bid_dollars": "0.0000",
+    "price_level_structure": "linear_cent",
+    "price_ranges": [
+     {
+      "end": "1.0000",
+      "start": "0.0000",
+      "step": "0.0100"
+     }
+    ],
+    "response_price_units": "usd_cent",
+    "result": "no",
+    "rules_primary": "If \n Donald Trump mentions the topic of Immigration most as part of Roundtable Chippewa Falls, Wisconsin\n, then the market resolves to Yes.",
+    "rules_secondary": "Video of the Roundtable Chippewa Falls, Wisconsin will be primarily used to resolve the market; if a consensus by Kalshi employees cannot be reached using video, internal & external (official) transcripts of the Roundtable Chippewa Falls, Wisconsin will be used.\n\nPayout Criterion: \nThe topic being mentioned will only count if it is included within the listed word bank. \nThe exact phrase/word, or a plural or possessive form of the phrase/word, must be used. Grammatical/tense inflections are otherwise not included. \nFor the purpose of this market, the live broadcast or stream will be used to resolve this event. \nExcept as otherwise specified, previously aired content, archival footage, and recordings captured at times, places, or events wholly separate from the featured address will not count.\nPlease see full rules for more details.\n\nEvent does not qualify:\nIf an event is definitively cancelled or the event fails to qualify under the Payout Criterion, or any other circumstance prevents normal resolution, then the market for \"Event does not qualify\" resolves to Yes and all other markets will resolve to No.  \nThe event will resolve based on Donald Trump speaking in an official capacity. If Donald Trump is or is not present during a livestream, and does not speak in an official capacity the market will not qualify (e.g., inaudible private conversations on camera, unofficial statements picked up on a hot mic).\n\nPostponement:\nIf the event is postponed, and such a postponement is announced by the end of the following calendar day to be rescheduled to a time within 14 calendar days, the markets shall remain open.",
+    "settlement_timer_seconds": 1800,
+    "settlement_ts": "2026-06-06T02:33:04.446481Z",
+    "settlement_value_dollars": "0.0000",
+    "status": "finalized",
+    "strike_type": "custom",
+    "subtitle": ":: Border / Illegal Alien / Mental Institution / Fentanyl / Immigrant / Immigration",
+    "ticker": "KXTRUMPTOPIC-26JUN05-IMMI",
+    "title": "Which topic will Donald Trump mention most during Roundtable Chippewa Falls, Wisconsin?",
+    "updated_time": "2026-06-06T02:33:04.503027Z",
+    "volume_24h_fp": "0.00",
+    "volume_fp": "12348.44",
+    "yes_ask_dollars": "1.0000",
+    "yes_ask_size_fp": "0.00",
+    "yes_bid_dollars": "0.0000",
+    "yes_bid_size_fp": "0.00",
+    "yes_sub_title": "Immigration"
+   },
+   "event": {
+    "event_ticker": "KXTRUMPTOPIC-26JUN05",
+    "series_ticker": "KXTRUMPTOPIC",
+    "series_title": "Trump Topic Mention",
+    "title": "Which topic will Trump mention most during his roundtable?",
+    "settlement_sources": [
+     {
+      "name": "Fox News",
+      "url": "https://www.foxnews.com/"
+     },
+     {
+      "name": "Associated Press",
+      "url": "https://apnews.com"
+     },
+     {
+      "name": "Semafor",
+      "url": "https://www.semafor.com/"
+     },
+     {
+      "name": "ABC",
+      "url": "https://abcnews.go.com/"
+     },
+     {
+      "name": "The Wall Street Journal",
+      "url": "https://www.wsj.com/"
+     },
+     {
+      "name": "New York Times",
+      "url": "https://www.nytimes.com/"
+     },
+     {
+      "name": "Reuters",
+      "url": "https://www.reuters.com"
+     },
+     {
+      "name": "Axios",
+      "url": "https://www.axios.com"
+     },
+     {
+      "name": "Politico",
+      "url": "https://www.politico.com"
+     },
+     {
+      "name": "MSNBC",
+      "url": "https://www.msnbc.com"
+     },
+     {
+      "name": "CNN",
+      "url": "https://www.cnn.com"
+     },
+     {
+      "name": "The Washington Post",
+      "url": "https://www.washingtonpost.com/"
+     },
+     {
+      "name": "CBS",
+      "url": "https://www.cbsnews.com/"
+     }
+    ]
+   }
+  },
+  {
+   "kind": "fed_at",
+   "market": {
+    "can_close_early": true,
+    "close_time": "2026-06-17T19:35:25Z",
+    "created_time": "2026-05-27T00:25:57.530524Z",
+    "custom_strike": {
+     "Word": "AI / Artificial Intelligence"
+    },
+    "early_close_condition": "This market will close and expire early if the event occurs.",
+    "event_ticker": "KXFEDMENTION-26JUN",
+    "expected_expiration_time": "2026-06-18T14:00:00Z",
+    "expiration_time": "2026-06-18T14:00:00Z",
+    "expiration_value": "Yes",
+    "fractional_trading_enabled": true,
+    "last_price_dollars": "0.9900",
+    "latest_expiration_time": "2026-06-18T14:00:00Z",
+    "liquidity_dollars": "0.0000",
+    "market_type": "binary",
+    "no_ask_dollars": "1.0000",
+    "no_bid_dollars": "0.0000",
+    "no_sub_title": "AI / Artificial Intelligence",
+    "notional_value_dollars": "1.0000",
+    "occurrence_datetime": "2026-06-17T19:36:24Z",
+    "open_interest_fp": "8504.34",
+    "open_time": "2026-05-27T02:00:00Z",
+    "previous_price_dollars": "0.9900",
+    "previous_yes_ask_dollars": "1.0000",
+    "previous_yes_bid_dollars": "0.0000",
+    "price_level_structure": "linear_cent",
+    "price_ranges": [
+     {
+      "end": "1.0000",
+      "start": "0.0000",
+      "step": "0.0100"
+     }
+    ],
+    "response_price_units": "usd_cent",
+    "result": "yes",
+    "rules_primary": "If the Chair of the Federal Reserve says AI / Artificial Intelligence at his Jun 2026 post-FOMC meeting introductory remarks and Q+A, then the market resolves to Yes.",
+    "rules_secondary": "Video of the Jun 2026 post-FOMC meeting introductory remarks and Q+A will be primarily used to resolve the market; if a consensus by Kalshi employees cannot be reached using video, internal & external (official) transcripts of the Jun 2026 post-FOMC meeting introductory remarks and Q+A will be used. The exact phrase/word, or a plural or possessive form of the phrase/word, must be used. Grammatical/tense inflections are otherwise not included. Please see full rules for more details.",
+    "settlement_timer_seconds": 1800,
+    "settlement_ts": "2026-06-17T20:26:33.386Z",
+    "settlement_value_dollars": "1.0000",
+    "status": "finalized",
+    "strike_type": "custom",
+    "ticker": "KXFEDMENTION-26JUN-AI",
+    "title": "Will Kevin Warsh say AI / Artificial Intelligence at his Jun 2026 press conference?",
+    "updated_time": "2026-06-17T20:26:33.41245Z",
+    "volume_24h_fp": "0.00",
+    "volume_fp": "9672.14",
+    "yes_ask_dollars": "1.0000",
+    "yes_ask_size_fp": "0.00",
+    "yes_bid_dollars": "0.0000",
+    "yes_bid_size_fp": "0.00",
+    "yes_sub_title": "AI / Artificial Intelligence"
+   },
+   "event": {
+    "event_ticker": "KXFEDMENTION-26JUN",
+    "series_ticker": "KXFEDMENTION",
+    "series_title": "Fed mention",
+    "title": "What will Kevin Warsh say during his June press conference?",
+    "settlement_sources": [
+     {
+      "name": "Federal Reserve",
+      "url": "https://www.federalreserve.gov"
+     }
+    ]
+   }
+  }
+ ]
+}

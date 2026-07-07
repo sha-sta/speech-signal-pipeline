@@ -1,0 +1,83 @@
+{
+ "markets": [
+  {
+   "candlesticks": [
+    {
+     "end_period_ts": 1783046460,
+     "open_interest_fp": "25454.53",
+     "price": {
+      "close_dollars": "0.0020",
+      "high_dollars": "0.0020",
+      "low_dollars": "0.0020",
+      "mean_dollars": "0.0020",
+      "open_dollars": "0.0020"
+     },
+     "volume_fp": "25454.53",
+     "yes_ask": {
+      "close_dollars": "1.0000",
+      "high_dollars": "1.0000",
+      "low_dollars": "0.0020",
+      "open_dollars": "0.0020"
+     },
+     "yes_bid": {
+      "close_dollars": "0.0000",
+      "high_dollars": "0.0000",
+      "low_dollars": "0.0000",
+      "open_dollars": "0.0000"
+     }
+    },
+    {
+     "end_period_ts": 1783046580,
+     "open_interest_fp": "29318.14",
+     "price": {
+      "close_dollars": "0.0020",
+      "high_dollars": "0.0020",
+      "low_dollars": "0.0020",
+      "mean_dollars": "0.0020",
+      "open_dollars": "0.0020",
+      "previous_dollars": "0.0020"
+     },
+     "volume_fp": "3863.61",
+     "yes_ask": {
+      "close_dollars": "1.0000",
+      "high_dollars": "1.0000",
+      "low_dollars": "0.0020",
+      "open_dollars": "1.0000"
+     },
+     "yes_bid": {
+      "close_dollars": "0.0000",
+      "high_dollars": "0.0000",
+      "low_dollars": "0.0000",
+      "open_dollars": "0.0000"
+     }
+    },
+    {
+     "end_period_ts": 1783046640,
+     "open_interest_fp": "29772.68",
+     "price": {
+      "close_dollars": "0.0020",
+      "high_dollars": "0.0020",
+      "low_dollars": "0.0020",
+      "mean_dollars": "0.0020",
+      "open_dollars": "0.0020",
+      "previous_dollars": "0.0020"
+     },
+     "volume_fp": "454.54",
+     "yes_ask": {
+      "close_dollars": "1.0000",
+      "high_dollars": "1.0000",
+      "low_dollars": "0.0020",
+      "open_dollars": "1.0000"
+     },
+     "yes_bid": {
+      "close_dollars": "0.0000",
+      "high_dollars": "0.0000",
+      "low_dollars": "0.0000",
+      "open_dollars": "0.0000"
+     }
+    }
+   ],
+   "market_ticker": "KXMVESPORTSMULTIGAMEEXTENDED-S2026793EB4369A8-64FD9E6503C"
+  }
+ ]
+}
