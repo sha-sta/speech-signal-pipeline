@@ -34,9 +34,15 @@ detection, and backtesting *infrastructure* only.
   replays *your own* predictions frame against recorded market prices.
 - `scripts/` — standalone microstructure/ASR-QA tooling for a recorded tape (book-shape survey,
   ASR-vs-book reprice-lag measurement, transcript QA).
+- `cpp/` — an optional C++20 engine for the backtest hot path and tick-to-bar replay,
+  bit-identical to the Python reference (enforced by a parity gate in CI) and built like a
+  low-latency system: allocation-free hot loop, mmap-able binary tapes, sanitizers in CI,
+  honest benchmarks. Python stays the reference and works without it; see
+  `docs/BACKTEST_ENGINE.md`.
 
 See `docs/ARCHITECTURE.md` for the data-flow diagram and design decisions, `docs/CAPTURE_GUIDE.md`
-for the capture-ops runbook, and `docs/BACKTEST_HARNESS.md` for the simulator's mechanics.
+for the capture-ops runbook, `docs/BACKTEST_HARNESS.md` for the simulator's mechanics, and
+`docs/BACKTEST_ENGINE.md` for the native engine and its benchmark methodology.
 
 ## Quickstart
 
