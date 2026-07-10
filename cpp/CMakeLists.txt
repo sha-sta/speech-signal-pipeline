@@ -29,6 +29,8 @@ add_library(pmlab_engine STATIC
   src/mechanics.cpp
   src/engine.cpp
   src/corpus_io.cpp
+  src/bars.cpp
+  src/tape.cpp
 )
 target_include_directories(pmlab_engine PUBLIC include)
 target_link_libraries(pmlab_engine

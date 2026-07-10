@@ -27,6 +27,7 @@ import numpy as np
 import pandas as pd
 
 from pmlab.data.schemas import BACKTEST_COLUMNS, Backtest, empty_backtest
+from pmlab.probe.bars import BAR_COLUMNS, PERIOD_S, BookTick
 from pmlab.study.backtest import (
     _DAY_S,
     BacktestParams,
@@ -153,3 +154,36 @@ def run_backtest_native(
     )
     out["decision_ts"] = out["decision_ts"].astype("Int64")
     return Backtest.validate(out)
+
+
+def assemble_bars_native(
+    ticks: list[BookTick],
+    ticker: str,
+    start_ts: int,
+    end_ts: int,
+    *,
+    period_s: int = PERIOD_S,
+) -> pd.DataFrame:
+    """Same output, same bits as :func:`pmlab.probe.bars.assemble_bars` — C++ replay loop."""
+    if _engine is None:
+        raise ImportError("pmlab._engine is not built; see src/pmlab/study/engine.py docstring")
+    ts = np.fromiter((t.ts for t in ticks), dtype=np.int64, count=len(ticks))
+    bid = np.fromiter((t.yes_bid for t in ticks), dtype=np.float64, count=len(ticks))
+    ask = np.fromiter((t.yes_ask for t in ticks), dtype=np.float64, count=len(ticks))
+    res = _engine.assemble_bars(ts, bid, ask, int(start_ts), int(end_ts), int(period_s))
+    n = len(res["ts"])
+    if n == 0:  # the Python path builds an all-object empty frame; mirror it exactly
+        return pd.DataFrame([], columns=BAR_COLUMNS)
+    out = pd.DataFrame(
+        {
+            "ticker": [ticker] * n,
+            "ts": res["ts"],
+            "yes_bid_open": res["yes_bid_open"], "yes_bid_high": res["yes_bid_high"],
+            "yes_bid_low": res["yes_bid_low"], "yes_bid_close": res["yes_bid_close"],
+            "yes_ask_open": res["yes_ask_open"], "yes_ask_high": res["yes_ask_high"],
+            "yes_ask_low": res["yes_ask_low"], "yes_ask_close": res["yes_ask_close"],
+            "volume": np.full(n, np.nan),
+        },
+        columns=BAR_COLUMNS,
+    )
+    return out

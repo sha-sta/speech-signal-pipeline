@@ -7,7 +7,9 @@
 #include <cstdint>
 #include <span>
 #include <stdexcept>
+#include <vector>
 
+#include "pmlab_engine/bars.hpp"
 #include "pmlab_engine/engine.hpp"
 #include "pmlab_engine/version.hpp"
 
@@ -92,6 +94,53 @@ py::dict run_backtest(Array<double> bar_ts, Array<double> bar_bid_close,
   return d;
 }
 
+py::dict assemble_bars(Array<std::int64_t> ts, Array<double> yes_bid, Array<double> yes_ask,
+                       std::int64_t start_ts, std::int64_t end_ts, std::int64_t period_s) {
+  const auto n = ts.size();
+  if (yes_bid.size() != n || yes_ask.size() != n) {
+    throw std::invalid_argument("tick columns must all have the same length");
+  }
+  std::vector<pmlab::BookTick> ticks;
+  ticks.reserve(static_cast<std::size_t>(n));
+  for (py::ssize_t i = 0; i < n; ++i) {
+    ticks.push_back({ts.data()[i], yes_bid.data()[i], yes_ask.data()[i]});
+  }
+
+  std::vector<pmlab::Bar> bars;
+  {
+    py::gil_scoped_release release;
+    bars = pmlab::assemble_bars(ticks, start_ts, end_ts, period_s);
+  }
+
+  const auto nb = static_cast<py::ssize_t>(bars.size());
+  py::array_t<std::int64_t> bar_ts(nb);
+  py::array_t<double> bid_open(nb), bid_high(nb), bid_low(nb), bid_close(nb), ask_open(nb),
+      ask_high(nb), ask_low(nb), ask_close(nb);
+  for (py::ssize_t i = 0; i < nb; ++i) {
+    const auto& b = bars[static_cast<std::size_t>(i)];
+    bar_ts.mutable_data()[i] = b.ts;
+    bid_open.mutable_data()[i] = b.bid_open;
+    bid_high.mutable_data()[i] = b.bid_high;
+    bid_low.mutable_data()[i] = b.bid_low;
+    bid_close.mutable_data()[i] = b.bid_close;
+    ask_open.mutable_data()[i] = b.ask_open;
+    ask_high.mutable_data()[i] = b.ask_high;
+    ask_low.mutable_data()[i] = b.ask_low;
+    ask_close.mutable_data()[i] = b.ask_close;
+  }
+  py::dict d;
+  d["ts"] = bar_ts;
+  d["yes_bid_open"] = bid_open;
+  d["yes_bid_high"] = bid_high;
+  d["yes_bid_low"] = bid_low;
+  d["yes_bid_close"] = bid_close;
+  d["yes_ask_open"] = ask_open;
+  d["yes_ask_high"] = ask_high;
+  d["yes_ask_low"] = ask_low;
+  d["yes_ask_close"] = ask_close;
+  return d;
+}
+
 }  // namespace
 
 PYBIND11_MODULE(_engine, m) {
@@ -103,4 +152,6 @@ PYBIND11_MODULE(_engine, m) {
         py::arg("y"), py::arg("bar_group"), py::arg("trade_ok"), py::arg("has_maker_fee"),
         py::arg("risk_technical"), py::arg("band_lo"), py::arg("band_hi"), py::arg("theta"),
         py::arg("tick"), py::arg("max_staleness_s"), py::arg("contracts"));
+  m.def("assemble_bars", &assemble_bars, py::arg("ts"), py::arg("yes_bid"), py::arg("yes_ask"),
+        py::arg("start_ts"), py::arg("end_ts"), py::arg("period_s"));
 }
