@@ -1,0 +1,38 @@
+name: cpp
+
+on:
+  push:
+    branches: [main]
+    paths: ["cpp/**", ".github/workflows/cpp.yml"]
+  pull_request:
+    paths: ["cpp/**", ".github/workflows/cpp.yml"]
+
+jobs:
+  build-test:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+        config:
+          - { name: release, build_type: Release, sanitize: "OFF" }
+          - { name: asan-ubsan, build_type: Debug, sanitize: "ON" }
+    runs-on: ${{ matrix.os }}
+    name: ${{ matrix.os }} / ${{ matrix.config.name }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Configure
+        run: >
+          cmake -S cpp -B cpp/build
+          -DCMAKE_BUILD_TYPE=${{ matrix.config.build_type }}
+          -DPMLAB_ENGINE_SANITIZE=${{ matrix.config.sanitize }}
+
+      - name: Build
+        run: cmake --build cpp/build --parallel
+
+      - name: Test
+        env:
+          # macOS ASan aborts inside Apple's malloc nano zone during startup; disabling the nano
+          # zone is the documented workaround and a no-op elsewhere.
+          MallocNanoZone: "0"
+        run: ctest --test-dir cpp/build --output-on-failure

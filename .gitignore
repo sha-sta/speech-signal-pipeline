@@ -29,3 +29,6 @@ __pycache__/
 
 # MCP / tooling artifacts
 .playwright-mcp/
+
+# C++ engine build tree
+cpp/build/
