@@ -37,6 +37,7 @@ dev = [
     "ruff>=0.5",
     "mypy>=1.10",
     "types-requests>=2.32",
+    "pybind11>=2.13",  # headers/CMake config for the optional C++ engine (cpp/)
 ]
 
 [build-system]
@@ -65,6 +66,7 @@ plugins = ["pydantic.mypy"]
 module = [
     "pandas.*", "scipy.*",
     "faster_whisper.*", "websockets.*", "selectolax.*",
+    "pmlab._engine",  # compiled extension (cpp/), optional and stub-free
 ]
 ignore_missing_imports = true
 
@@ -72,5 +74,6 @@ ignore_missing_imports = true
 testpaths = ["tests"]
 markers = [
     "live: hits real venue endpoints over the network (deselected by default; run with -m live)",
+    "engine: parity tests against the native C++ engine (skip themselves when it is not built)",
 ]
 addopts = "-m 'not live'"

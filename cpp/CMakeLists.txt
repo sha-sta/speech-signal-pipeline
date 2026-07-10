@@ -11,6 +11,7 @@ endif()
 
 option(PMLAB_ENGINE_SANITIZE "Build with AddressSanitizer + UndefinedBehaviorSanitizer" OFF)
 option(PMLAB_ENGINE_TESTS "Build unit tests" ON)
+option(PMLAB_ENGINE_PYTHON "Build the pybind11 module (pmlab._engine)" OFF)
 
 add_library(pmlab_engine_warnings INTERFACE)
 target_compile_options(pmlab_engine_warnings INTERFACE -Wall -Wextra -Wpedantic -Werror)
@@ -36,6 +37,23 @@ target_link_libraries(pmlab_engine
 
 add_executable(engine_cli src/engine_cli.cpp)
 target_link_libraries(engine_cli PRIVATE pmlab_engine pmlab_engine_warnings)
+
+if(PMLAB_ENGINE_PYTHON)
+  # pybind11 ships in the dev dependency group; point CMake at it with
+  #   -Dpybind11_DIR=$(uv run python -m pybind11 --cmakedir)
+  # and pin the interpreter to the project venv (NOT whatever python3 is newest on the host):
+  #   -DPython_EXECUTABLE=<repo>/.venv/bin/python
+  set(PYBIND11_FINDPYTHON ON)
+  find_package(pybind11 CONFIG REQUIRED)
+  pybind11_add_module(_engine binding/module.cpp)
+  target_link_libraries(_engine PRIVATE pmlab_engine)
+  # Drop the built module into the package so the editable install imports pmlab._engine
+  # directly (the .so is gitignored; pure-Python installs never need it).
+  add_custom_command(TARGET _engine POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE:_engine>
+            ${CMAKE_CURRENT_SOURCE_DIR}/../src/pmlab/
+    COMMENT "Installing pmlab._engine into src/pmlab/")
+endif()
 
 if(PMLAB_ENGINE_TESTS)
   enable_testing()
