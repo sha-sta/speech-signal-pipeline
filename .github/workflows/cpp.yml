@@ -1,11 +1,11 @@
 name: cpp
 
+# No paths filter: the parity gate must run when EITHER side of the language boundary moves
+# (a src/pmlab/study change can break engine parity just as easily as a cpp/ change).
 on:
   push:
     branches: [main]
-    paths: ["cpp/**", ".github/workflows/cpp.yml"]
   pull_request:
-    paths: ["cpp/**", ".github/workflows/cpp.yml"]
 
 jobs:
   build-test:
@@ -36,3 +36,30 @@ jobs:
           # zone is the documented workaround and a no-op elsewhere.
           MallocNanoZone: "0"
         run: ctest --test-dir cpp/build --output-on-failure
+
+  # THE acceptance gate: build the pybind11 module and require bit-identical output between
+  # run_backtest (Python reference) and run_backtest_native (C++ engine).
+  python-parity:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: astral-sh/setup-uv@v5
+
+      - name: Sync Python environment
+        run: uv sync
+
+      - name: Build pmlab._engine
+        run: >
+          cmake -S cpp -B cpp/build/python
+          -DCMAKE_BUILD_TYPE=Release
+          -DPMLAB_ENGINE_PYTHON=ON
+          -Dpybind11_DIR=$(uv run python -m pybind11 --cmakedir)
+          -DPython_EXECUTABLE=$(uv run python -c 'import sys; print(sys.executable)')
+          && cmake --build cpp/build/python --parallel
+
+      - name: Prove the engine imports (parity must not silently skip)
+        run: uv run python -c "from pmlab.study.engine import engine_available; assert engine_available()"
+
+      - name: Run test suite (engine parity included)
+        run: uv run pytest -q

@@ -32,3 +32,6 @@ __pycache__/
 
 # C++ engine build tree
 cpp/build/
+
+# Optional native engine module built from cpp/ (see src/pmlab/study/engine.py)
+src/pmlab/_engine*.so

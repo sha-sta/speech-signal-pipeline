@@ -14,6 +14,13 @@
       "cacheVariables": { "CMAKE_BUILD_TYPE": "Release" }
     },
     {
+      "name": "python",
+      "inherits": "release",
+      "displayName": "Release + pybind11 module",
+      "description": "Configure with -Dpybind11_DIR=$(uv run python -m pybind11 --cmakedir).",
+      "cacheVariables": { "PMLAB_ENGINE_PYTHON": "ON" }
+    },
+    {
       "name": "sanitize",
       "inherits": "base",
       "displayName": "Debug + ASan/UBSan",
