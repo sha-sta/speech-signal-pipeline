@@ -1,0 +1,35 @@
+{
+  "version": 6,
+  "configurePresets": [
+    {
+      "name": "base",
+      "hidden": true,
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/${presetName}"
+    },
+    {
+      "name": "release",
+      "inherits": "base",
+      "displayName": "Release",
+      "cacheVariables": { "CMAKE_BUILD_TYPE": "Release" }
+    },
+    {
+      "name": "sanitize",
+      "inherits": "base",
+      "displayName": "Debug + ASan/UBSan",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "PMLAB_ENGINE_SANITIZE": "ON"
+      }
+    },
+    {
+      "name": "sanitize-brew-llvm",
+      "inherits": "sanitize",
+      "displayName": "Debug + ASan/UBSan (Homebrew LLVM)",
+      "description": "Apple clang 15's ASan runtime predates this macOS and aborts at startup; Homebrew LLVM's runtime works. Run tests with MallocNanoZone=0.",
+      "cacheVariables": {
+        "CMAKE_CXX_COMPILER": "/opt/homebrew/opt/llvm/bin/clang++"
+      }
+    }
+  ]
+}
