@@ -24,6 +24,8 @@ endif()
 
 add_library(pmlab_engine STATIC
   src/version.cpp
+  src/pyround.cpp
+  src/mechanics.cpp
 )
 target_include_directories(pmlab_engine PUBLIC include)
 target_link_libraries(pmlab_engine
