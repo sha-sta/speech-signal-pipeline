@@ -40,6 +40,9 @@ target_link_libraries(pmlab_engine
 add_executable(engine_cli src/engine_cli.cpp)
 target_link_libraries(engine_cli PRIVATE pmlab_engine pmlab_engine_warnings)
 
+add_executable(engine_bench bench/bench_main.cpp)
+target_link_libraries(engine_bench PRIVATE pmlab_engine pmlab_engine_warnings)
+
 if(PMLAB_ENGINE_PYTHON)
   # pybind11 ships in the dev dependency group; point CMake at it with
   #   -Dpybind11_DIR=$(uv run python -m pybind11 --cmakedir)
