@@ -2,6 +2,7 @@ add_executable(engine_tests
   test_version.cpp
   test_mechanics.cpp
   test_golden.cpp
+  test_engine.cpp
 )
 target_link_libraries(engine_tests
   PRIVATE pmlab_engine pmlab_engine_warnings GTest::gtest_main)

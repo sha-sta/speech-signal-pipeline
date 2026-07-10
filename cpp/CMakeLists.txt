@@ -26,11 +26,16 @@ add_library(pmlab_engine STATIC
   src/version.cpp
   src/pyround.cpp
   src/mechanics.cpp
+  src/engine.cpp
+  src/corpus_io.cpp
 )
 target_include_directories(pmlab_engine PUBLIC include)
 target_link_libraries(pmlab_engine
   PRIVATE pmlab_engine_warnings
   PUBLIC pmlab_engine_sanitizers)
+
+add_executable(engine_cli src/engine_cli.cpp)
+target_link_libraries(engine_cli PRIVATE pmlab_engine pmlab_engine_warnings)
 
 if(PMLAB_ENGINE_TESTS)
   enable_testing()
