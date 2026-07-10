@@ -5,6 +5,7 @@ add_executable(engine_tests
   test_engine.cpp
   test_bars.cpp
   test_tape.cpp
+  test_allocations.cpp
 )
 target_link_libraries(engine_tests
   PRIVATE pmlab_engine pmlab_engine_warnings GTest::gtest_main)
