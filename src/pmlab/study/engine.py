@@ -55,23 +55,17 @@ def engine_version() -> str:
     return str(_engine.version())
 
 
-def run_backtest_native(
-    predictions: pd.DataFrame,
+def prepare_native_inputs(
+    df: pd.DataFrame,
     candles: pd.DataFrame,
-    registry: pd.DataFrame,
-    *,
-    params: BacktestParams | None = None,
-    fee_types: dict[str, str] | None = None,
-    contracts: float = 1.0,
-) -> pd.DataFrame:
-    """Same signature, same output, same bits as ``run_backtest`` — just a C++ hot loop."""
-    if _engine is None:
-        raise ImportError("pmlab._engine is not built; see src/pmlab/study/engine.py docstring")
-    p = params or BacktestParams()
-    if predictions.empty:
-        return empty_backtest()
+    p: BacktestParams,
+    fee_types: dict[str, str] | None,
+) -> tuple[dict[str, np.ndarray], list[str]]:
+    """Resolve the merged predictions frame + candles into the engine's flat input columns.
 
-    df = predictions.merge(_meta(registry), on="market_ticker", how="left")
+    ``df`` is predictions already merged with the registry meta. Returns the keyword-ready
+    array dict (in ``_engine.run_backtest`` positional order) and the per-row filled
+    resolution-risk strings (the wrapper reuses them for the output frame)."""
     n = len(df)
     bars_by = _bars_by_ticker(candles)
 
@@ -111,10 +105,37 @@ def run_backtest_native(
     risk_technical = np.fromiter(
         (str(r) in {"medium", "high"} for r in risk), dtype=np.uint8, count=n
     )
+    arrays = {
+        "bar_ts": bar_ts, "bar_bid_close": bar_bid, "bar_ask_close": bar_ask,
+        "bar_price_low": bar_plow, "bar_price_high": bar_phigh,
+        "offsets": offsets, "counts": counts,
+        "decision_ts": decision_ts, "model_p": model_p, "y": y, "bar_group": bar_group,
+        "trade_ok": trade_ok, "has_maker_fee": has_fee, "risk_technical": risk_technical,
+    }
+    return arrays, risk
+
+
+def run_backtest_native(
+    predictions: pd.DataFrame,
+    candles: pd.DataFrame,
+    registry: pd.DataFrame,
+    *,
+    params: BacktestParams | None = None,
+    fee_types: dict[str, str] | None = None,
+    contracts: float = 1.0,
+) -> pd.DataFrame:
+    """Same signature, same output, same bits as ``run_backtest`` — just a C++ hot loop."""
+    if _engine is None:
+        raise ImportError("pmlab._engine is not built; see src/pmlab/study/engine.py docstring")
+    p = params or BacktestParams()
+    if predictions.empty:
+        return empty_backtest()
+
+    df = predictions.merge(_meta(registry), on="market_ticker", how="left")
+    arrays, risk = prepare_native_inputs(df, candles, p, fee_types)
 
     res = _engine.run_backtest(
-        bar_ts, bar_bid, bar_ask, bar_plow, bar_phigh, offsets, counts,
-        decision_ts, model_p, y, bar_group, trade_ok, has_fee, risk_technical,
+        **arrays,
         band_lo=p.band_lo, band_hi=p.band_hi, theta=p.theta, tick=p.tick,
         max_staleness_s=p.max_staleness_days * _DAY_S, contracts=contracts,
     )
