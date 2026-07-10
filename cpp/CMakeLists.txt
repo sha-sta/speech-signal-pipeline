@@ -33,6 +33,8 @@ add_library(pmlab_engine STATIC
   src/tape.cpp
 )
 target_include_directories(pmlab_engine PUBLIC include)
+# PIC so the static library links into the pybind11 shared module on Linux (macOS is always PIC).
+set_target_properties(pmlab_engine PROPERTIES POSITION_INDEPENDENT_CODE ON)
 target_link_libraries(pmlab_engine
   PRIVATE pmlab_engine_warnings
   PUBLIC pmlab_engine_sanitizers)

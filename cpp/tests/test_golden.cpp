@@ -7,9 +7,11 @@
 #include <gtest/gtest.h>
 
 #include <bit>
+#include <cmath>
 #include <cstdint>
 #include <cstdlib>
 #include <fstream>
+#include <limits>
 #include <optional>
 #include <sstream>
 #include <string>
